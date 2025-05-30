@@ -5,6 +5,13 @@ date: 2025-05-30 12:00:00 +0900
 categories: [블로그, GitHub]
 tags: [github, jekyll, blog]
 pin: true
+math: true
+mermaid: true
+image:
+  path: /assets/img/posts/github-blog-banner.jpg
+  width: 800
+  height: 500
+  alt: GitHub 블로그 시작하기
 ---
 
 ## GitHub 블로그란?
@@ -34,8 +41,55 @@ GitHub 블로그는 GitHub 라는 원격 소스코드 저장 플랫폼의 **GitH
 
 그럼에도 불구하고, GitHub 블로그가 가진 자유로움에 반해 많은 블로거들이 기존에 사용하던 블로그 서비스 대신 GitHub 블로그를 선택하고 있습니다. 특히 기술적인 장벽이 낮아서 잘 사용하는 소프트웨어 개발자 뿐만 아니라, 전공 특성상 프로그래밍/코딩과 친숙한 분야(빅데이터, 통계, AI 등)에 계신 분들도 GitHub 블로그를 많이 사용합니다.
 
+## GitHub 블로그의 강력한 기능들
+
+GitHub 블로그는 다양한 기능을 지원합니다. 몇 가지 예시를 보여드리겠습니다.
+
+### 수학 수식 지원
+
+LaTeX 문법을 사용하여 수학 수식을 표현할 수 있습니다:
+
+$$
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+$$
+
+인라인 수식도 가능합니다: $E = mc^2$
+
+### 다이어그램 지원
+
+Mermaid를 사용하여 다이어그램을 그릴 수 있습니다:
+
+```mermaid
+flowchart LR
+    A[시작] --> B{조건 확인}
+    B -->|Yes| C[작업 1]
+    B -->|No| D[작업 2]
+    C --> E[종료]
+    D --> E
+```
+
+### 코드 하이라이팅
+
+다양한 프로그래밍 언어의 코드 하이라이팅을 지원합니다:
+
+```python
+def hello_world():
+    print("Hello, GitHub Blog!")
+    
+if __name__ == "__main__":
+    hello_world()
+```
+
+```javascript
+function helloWorld() {
+  console.log("Hello, GitHub Blog!");
+}
+
+helloWorld();
+```
+
 ## 마무리
 
 이 글에서는 GitHub 블로그가 무엇인지, 그리고 왜 사용하는지에 대해 간략히 알아보았습니다. GitHub 블로그는 개발자나 기술 분야에 관심 있는 사람들에게 특히 유용한 플랫폼입니다. 
 
-앞으로 이 블로그에서 다양한 기술 관련 포스팅을 공유할 예정이니 많은 관심 부탁드립니다!
+앞으로 이 블로그에서 다양한 기술 관련 포스팅을 공유할 예정이니 많은 관심 부탁드립니다! 질문이나 의견이 있으시면 댓글로 남겨주세요.
