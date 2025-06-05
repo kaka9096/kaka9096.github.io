@@ -2,27 +2,44 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
-first_name: You
-middle_name: R.
-last_name: Name
+title: Stampler SIM # the website title (if blank, full name will be used instead)
+first_name: Sangwook
+middle_name: 
+last_name: Sim
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Feel free to reach out for collaboration, questions, or just to connect!
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  개발자 Stampler SIM의 기술 블로그입니다. 경력과 커리어 관련 지식, 개발 경험, 그리고 배운 내용들을 
+  스탬플러로 찍듯이 차곡차곡 모아두는 공간입니다.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
-lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+  📎 Stampler SIM's Dev Archive
+keywords: developer, programming, career, tech-blog, stampler-sim, 개발자, 기술블로그, 커리어 # add your own keywords or leave empty
+lang: ko # the language of your site (for example: en, fr, cn, ru, etc.)
+icon: 📌 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://alshedivat.github.io # the base hostname & protocol for your site
-baseurl: /al-folio # the subpath of your site, e.g. /blog/. Leave blank for root
-last_updated: false # set to true if you want to display last updated in the footer
+url: https://kaka9096.github.io # the base hostname & protocol for your site
+baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
+last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
+
+# -----------------------------------------------------------------------------
+# Author settings
+# -----------------------------------------------------------------------------
+
+author:
+  name: "Kaka 9096" # 저자 이름
+  avatar: "/assets/img/avatar.jpg" # 프로필 사진 경로 (루트 디렉토리 기준)
+  bio: "AI 연구 및 데이터 과학에 집중하는 박사과정생" # 저자 소개
+  email: "kaka9096@gmail.com" # 저자 이메일 (표시 여부는 테마 설정에 따라 다름)
+  linkedin: "swsim-0490b21a0" # LinkedIn 프로필 ID 또는 URL 마지막 부분
+  github: "kaka9096" # GitHub 사용자명
+  twitter: # Twitter 사용자명
+  google_scholar: "Sangwook Sim" # Google Scholar ID (옵션)
+  orcid: "0009-0005-9946-4327" # ORCID ID (옵션)
+
 
 # -----------------------------------------------------------------------------
 # Theme
