@@ -10,12 +10,18 @@ email: kaka9096@gmail.com
 description: >
   개발자 Stampler SIM의 기술 블로그입니다. 경력과 커리어 관련 지식, 개발 경험, 그리고 배운 내용들을
   스탬플러로 찍듯이 차곡차곡 모아두는 공간입니다.
-
+footer_text: >
+  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with 
+  <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+  📌 Stampler SIM's Dev Archive
+keywords: developer, programming, career, tech-blog, stampler-sim
 lang: ko
 icon: 📌
 
 url: https://kaka9096.github.io
 baseurl: ""
+last_updated: true
+impressum_path:
 
 # -----------------------------------------------------------------------------
 # Layout
@@ -26,12 +32,49 @@ footer_fixed: true
 max_width: 930px
 
 # -----------------------------------------------------------------------------
+# Open Graph & Schema.org
+# -----------------------------------------------------------------------------
+
+serve_og_meta: false
+serve_schema_org: false
+
+# -----------------------------------------------------------------------------
+# Social integration
+# -----------------------------------------------------------------------------
+
+github_username: kaka9096
+linkedin_username: swsim-0490b21a0
+google_scholar_id: "Sangwook Sim"
+orcid_id: "0009-0005-9946-4327"
+
+# -----------------------------------------------------------------------------
+# Analytics and search engine verification
+# -----------------------------------------------------------------------------
+
+google_analytics:
+google_site_verification:
+bing_site_verification:
+
+# -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
 
 blog_name: Stampler SIM
 blog_description: 개발 지식을 차곡차곡 모아두는 기술 블로그
 permalink: /blog/:year/:title/
+
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: /page/:num/
+  title: :title
+  limit: 0
+  sort_field: date
+  sort_reverse: true
+
+related_blog_posts:
+  enabled: true
+  max_related: 5
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -42,8 +85,10 @@ collections:
     defaults:
       layout: post
     output: true
+    permalink: /news/:path/
   projects:
     output: true
+    permalink: /projects/:path/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -54,9 +99,14 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter_opts:
-    css_class: "highlight"
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
 
-include: ["_pages"]
+include: ['_pages']
 exclude:
   - bin/
   - CONTRIBUTING.md
@@ -69,36 +119,169 @@ exclude:
   - Gemfile.lock
   - INSTALL.md
   - LICENSE
+  - lighthouse_results/
   - package.json
   - package-lock.json
+  - _pages/about_einstein.md
   - purgecss.config.js
   - README.md
+  - readme_preview/
   - vendor
 
 keep_files:
   - CNAME
   - .nojekyll
 
-# 안전한 플러그인만 사용
 plugins:
+  - jekyll-archives
+  - jekyll-email-protect
   - jekyll-feed
+  - jekyll-get-json
+  - jekyll-imagemagick
+  - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate-v2
+  - jekyll-regex-replace
+  - jekyll/scholar
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-tabs
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji
+
+# -----------------------------------------------------------------------------
+# Jekyll Archives
+# -----------------------------------------------------------------------------
+
+jekyll-archives:
+  enabled: [year, tags, categories]
+  layouts:
+    year: archive-year
+    tag: archive-tag
+    category: archive-category
+  permalinks:
+    year: '/blog/:year/'
+    tag: '/blog/tag/:name/'
+    category: '/blog/category/:name/'
+
+display_tags: ['formatting', 'images', 'links', 'math', 'code']
+display_categories: ['blockquotes']
+
+# -----------------------------------------------------------------------------
+# Jekyll Scholar
+# -----------------------------------------------------------------------------
+
+scholar:
+  last_name: [Sim]
+  first_name: [Sangwook, S.]
+  style: apa
+  locale: en
+  source: /_bibliography/
+  bibliography: papers.bib
+  bibliography_template: bib
+  bibtex_filters: [latex, smallcaps, superscript]
+  replace_strings: true
+  join_strings: true
+  details_dir: bibliography
+  details_link: Details
+  query: "@*"
+  group_by: year
+  group_order: descending
+
+enable_publication_badges:
+  altmetric: true
+  dimensions: true
+  google_scholar: true
+  inspirehep: true
+
+filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, slides, website, preview, altmetric]
 
 # -----------------------------------------------------------------------------
 # Optional Features
 # -----------------------------------------------------------------------------
 
+enable_google_analytics: false
+enable_cronitor_analytics: false
+enable_google_verification: false
+enable_bing_verification: false
+enable_masonry: true
+enable_math: true
+enable_tooltips: false
 enable_darkmode: true
 enable_navbar_social: false
 enable_project_categories: true
+enable_medium_zoom: true
+enable_progressbar: true
+enable_video_embedding: false
 
 # -----------------------------------------------------------------------------
-# Social integration
+# Library versions
 # -----------------------------------------------------------------------------
 
-github_username: kaka9096
-linkedin_username: swsim-0490b21a0
+third_party_libraries:
+  download: false
+  bootstrap-table:
+    integrity:
+      css: "sha256-uRX+PiRTR4ysKFRCykT8HLuRCub26LgXJZym3Yeom1c="
+      js: "sha256-4rppopQE9POKfukn2kEvhJ9Um25Cf6+IDVkARD0xh78="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.css"
+      js: "https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.js"
+    version: "1.22.4"
+  jquery:
+    integrity:
+      js: "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+    version: "3.6.0"
+  mathjax:
+    integrity:
+      js: "sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    version: "3.2.2"
+
+# -----------------------------------------------------------------------------
+# Jekyll Minifier
+# -----------------------------------------------------------------------------
+
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+
+# -----------------------------------------------------------------------------
+# Jekyll Link Attributes
+# -----------------------------------------------------------------------------
+
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+  exclude:
+
+# -----------------------------------------------------------------------------
+# Responsive WebP Images
+# -----------------------------------------------------------------------------
+
+imagemagick:
+  enabled: true
+  widths:
+    - 480
+    - 800
+    - 1400
+  input_directories:
+    - assets/img/
+  input_formats:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".tiff"
+  output_formats:
+    webp: "-resize 800x800>"
+
+lazy_loading_images: true
 
 sass:
   style: compressed
