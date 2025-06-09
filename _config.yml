@@ -138,7 +138,7 @@ plugins:
   - jekyll-feed
   - jekyll-get-json
   - jekyll-imagemagick
-  - jekyll-jupyter-notebook
+  # - jekyll-jupyter-notebook  # Jupyter 사용 안 함
   - jekyll-link-attributes
   - jekyll-minifier
   - jekyll-paginate-v2
