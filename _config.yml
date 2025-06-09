@@ -10,8 +10,6 @@ email: kaka9096@gmail.com
 description: >
   개발자 Stampler SIM의 기술 블로그입니다. 경력과 커리어 관련 지식, 개발 경험, 그리고 배운 내용들을
   스탬플러로 찍듯이 차곡차곡 모아두는 공간입니다.
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
 
 lang: ko
 icon: 📌
@@ -35,10 +33,6 @@ blog_name: Stampler SIM
 blog_description: 개발 지식을 차곡차곡 모아두는 기술 블로그
 permalink: /blog/:year/:title/
 
-pagination:
-  enabled: true
-  per_page: 5
-
 # -----------------------------------------------------------------------------
 # Collections
 # -----------------------------------------------------------------------------
@@ -61,10 +55,6 @@ kramdown:
   input: GFM
   syntax_highlighter_opts:
     css_class: "highlight"
-    span:
-      line_numbers: false
-    block:
-      line_numbers: false
 
 include: ["_pages"]
 exclude:
@@ -89,58 +79,19 @@ keep_files:
   - CNAME
   - .nojekyll
 
+# 안전한 플러그인만 사용
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate-v2
-  - jekyll-archives
-  - jekyll-scholar
-  - jekyll-minifier
-  - jekyll-toc
-  - jekyll-link-attributes
-  - jekyll-email-protect
-  - jekyll-imagemagick
-  - jemoji
 
 # -----------------------------------------------------------------------------
-# Plugin settings
-# -----------------------------------------------------------------------------
-
-# Jekyll Archives
-jekyll-archives:
-  enabled: [year, tags, categories]
-  layouts:
-    year: archive-year
-    tag: archive-tag
-    category: archive-category
-  permalinks:
-    year: '/blog/:year/'
-    tag: '/blog/tag/:name/'
-    category: '/blog/category/:name/'
-
-# Jekyll Scholar
-scholar:
-  last_name: [Sim]
-  first_name: [Sangwook]
-  style: apa
-  locale: en
-  source: /_bibliography/
-  bibliography: papers.bib
-  bibliography_template: bib
-  replace_strings: true
-  join_strings: true
-  details_dir: bibliography
-  details_link: Details
-  query: "@*"
-
 # Optional Features
+# -----------------------------------------------------------------------------
+
 enable_darkmode: true
 enable_navbar_social: false
 enable_project_categories: true
-enable_medium_zoom: true
-enable_progressbar: true
-enable_tooltips: false
 
 # -----------------------------------------------------------------------------
 # Social integration
@@ -148,8 +99,6 @@ enable_tooltips: false
 
 github_username: kaka9096
 linkedin_username: swsim-0490b21a0
-google_scholar_id: "Sangwook Sim"
-orcid_id: "0009-0005-9946-4327"
 
 sass:
   style: compressed
