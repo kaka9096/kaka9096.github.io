@@ -1,16 +1,18 @@
 source "https://rubygems.org"
 
-# Jekyll core
+# Jekyll 및 기본 의존성
 gem "jekyll", "~> 4.3.0"
+gem "jekyll-sass-converter", "~> 2.0"
+gem "kramdown-parser-gfm"
 
-# Essential Jekyll plugins
+# 플러그인들
 group :jekyll_plugins do
   gem "jekyll-archives"
   gem "jekyll-email-protect"
   gem "jekyll-feed"
   gem "jekyll-get-json"
   gem "jekyll-imagemagick"
-  gem "jekyll-jupyter-notebook"
+  # gem "jekyll-jupyter-notebook"  # Jupyter 비활성화
   gem "jekyll-link-attributes"
   gem "jekyll-minifier"
   gem "jekyll-paginate-v2"
@@ -26,32 +28,14 @@ group :jekyll_plugins do
   gem "webrick"
 end
 
-# Dependencies for _plugins/ custom plugins
-group :other_plugins do
-  gem "css_parser"           # download-3rd-party.rb
-  gem "feedjira"            # external-posts.rb  
-  gem "httparty"            # external-posts.rb, download-3rd-party.rb
-  gem "nokogiri"            # google-scholar-citations.rb, external-posts.rb
-  gem "classifier-reborn"
-  gem "observer"
-  gem "ostruct"
-  gem "activesupport"       # google-scholar-citations.rb, inspirehep-citations.rb
-  gem "i18n"                # remove-accents.rb
-end
-
-# Additional al-folio dependencies
-gem "jekyll-terser", git: "https://github.com/RobertoJBeltran/jekyll-terser.git"
-gem "jekyll-archives-v2"
-
-# Windows and JRuby compatibility
+# Windows 및 JRuby 플랫폼 지원
 platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo", ">= 1", "< 3"
   gem "tzinfo-data"
 end
 
+# Windows 성능 향상
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
-gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-if RUBY_PLATFORM =~ /linux-musl/
-  gem "jekyll-sass-converter", "~> 2.0"
-end
+# JRuby 지원
+gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
