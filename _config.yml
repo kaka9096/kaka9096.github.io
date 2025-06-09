@@ -6,46 +6,18 @@ title: Stampler SIM
 first_name: Sangwook
 middle_name:
 last_name: Sim
-contact_note: >
-  Feel free to reach out for collaboration, questions, or just to connect!
+email: kaka9096@gmail.com
 description: >
   개발자 Stampler SIM의 기술 블로그입니다. 경력과 커리어 관련 지식, 개발 경험, 그리고 배운 내용들을
   스탬플러로 찍듯이 차곡차곡 모아두는 공간입니다.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  📌 Stampler SIM's Dev Archive
-keywords: developer, programming, career, tech-blog, stampler-sim, 개발자, 기술블로그, 커리어
+
 lang: ko
 icon: 📌
 
 url: https://kaka9096.github.io
-baseurl:
-last_updated: true
-impressum_path:
-back_to_top: true
-
-# -----------------------------------------------------------------------------
-# Author settings
-# -----------------------------------------------------------------------------
-
-author:
-  name: "Stampler SIM"
-  avatar: "/assets/img/avatar.jpg"
-  bio: "개발 지식을 차곡차곡 모아두는 개발자"
-  email: "kaka9096@gmail.com"
-  linkedin: "swsim-0490b21a0"
-  github: "kaka9096"
-  twitter:
-  google_scholar: "Sangwook Sim"
-  orcid: "0009-0005-9946-4327"
-
-# -----------------------------------------------------------------------------
-# Theme
-# -----------------------------------------------------------------------------
-
-repo_theme_light: default
-repo_theme_dark: dark
+baseurl: ""
 
 # -----------------------------------------------------------------------------
 # Layout
@@ -65,14 +37,13 @@ permalink: /blog/:year/:title/
 
 pagination:
   enabled: true
+  per_page: 5
 
 # -----------------------------------------------------------------------------
 # Collections
 # -----------------------------------------------------------------------------
 
 collections:
-  books:
-    output: true
   news:
     defaults:
       layout: post
@@ -94,7 +65,6 @@ kramdown:
       line_numbers: false
     block:
       line_numbers: false
-      start_line: 1
 
 include: ["_pages"]
 exclude:
@@ -109,50 +79,77 @@ exclude:
   - Gemfile.lock
   - INSTALL.md
   - LICENSE
-  - lighthouse_results/
   - package.json
   - package-lock.json
-  - _pages/about_einstein.md
   - purgecss.config.js
   - README.md
-  - readme_preview/
   - vendor
 
 keep_files:
   - CNAME
   - .nojekyll
 
-# GitHub Pages에서 지원하는 플러그인만 사용
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jemoji
-  - jekyll-coffeescript
-  - jekyll-commonmark-ghpages
-  - jekyll-gist
-  - jekyll-github-metadata
-  - jekyll-paginate
-  - jekyll-relative-links
-  - jekyll-optional-front-matter
-  - jekyll-readme-index
-  - jekyll-default-layout
-  - jekyll-titles-from-headings
   - jekyll-seo-tag
-
-defaults:
-  - scope:
-      path: "assets"
-    values:
-      sitemap: false
-
-sass:
-  style: compressed
+  - jekyll-paginate-v2
+  - jekyll-archives
+  - jekyll-scholar
+  - jekyll-minifier
+  - jekyll-toc
+  - jekyll-link-attributes
+  - jekyll-email-protect
+  - jekyll-imagemagick
+  - jemoji
 
 # -----------------------------------------------------------------------------
-# Optional Features (간소화)
+# Plugin settings
 # -----------------------------------------------------------------------------
 
+# Jekyll Archives
+jekyll-archives:
+  enabled: [year, tags, categories]
+  layouts:
+    year: archive-year
+    tag: archive-tag
+    category: archive-category
+  permalinks:
+    year: '/blog/:year/'
+    tag: '/blog/tag/:name/'
+    category: '/blog/category/:name/'
+
+# Jekyll Scholar
+scholar:
+  last_name: [Sim]
+  first_name: [Sangwook]
+  style: apa
+  locale: en
+  source: /_bibliography/
+  bibliography: papers.bib
+  bibliography_template: bib
+  replace_strings: true
+  join_strings: true
+  details_dir: bibliography
+  details_link: Details
+  query: "@*"
+
+# Optional Features
 enable_darkmode: true
 enable_navbar_social: false
 enable_project_categories: true
+enable_medium_zoom: true
 enable_progressbar: true
+enable_tooltips: false
+
+# -----------------------------------------------------------------------------
+# Social integration
+# -----------------------------------------------------------------------------
+
+github_username: kaka9096
+linkedin_username: swsim-0490b21a0
+google_scholar_id: "Sangwook Sim"
+orcid_id: "0009-0005-9946-4327"
+
+sass:
+  style: compressed
