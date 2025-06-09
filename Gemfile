@@ -1,36 +1,66 @@
 source "https://rubygems.org"
 
-# Jekyll core
+# Hello! This is where you manage which Jekyll version is used to run.
+# When you want to use a different version, change it below, save the
+# file and run `bundle install`. Run Jekyll with `bundle exec`, like this:
+#
+#     bundle exec jekyll serve
+#
+# This will help ensure the proper Jekyll version is running.
+# Happy Jekylling!
+
 gem "jekyll", "~> 4.3.0"
 
-# Essential plugins for al-folio
-gem "jekyll-feed", "~> 0.17"
-gem "jekyll-sitemap", "~> 1.4"
-gem "jekyll-seo-tag", "~> 2.8"
-gem "jekyll-paginate-v2", "~> 3.0"
-gem "jekyll-archives", "~> 2.2"
+# This is the default theme for new Jekyll sites. You may change this to anything you like.
+# gem "minima", "~> 2.5"
 
-# al-folio specific gems (stable versions)
-gem "jekyll-scholar", "~> 7.0"
-gem "jekyll-minifier", "~> 0.1"
-gem "jekyll-toc", "~> 0.17"
-gem "jekyll-link-attributes", "~> 1.0"
-gem "jekyll-email-protect", "~> 1.1"
+# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
+# uncomment the line below. To upgrade, run `bundle update github-pages`.
+# gem "github-pages", group: :jekyll_plugins
 
-# Image processing
-gem "jekyll-imagemagick", "~> 1.4"
+# If you have any plugins, put them here!
+group :jekyll_plugins do
+  gem "jekyll-archives"
+  gem "jekyll-email-protect"
+  gem "jekyll-feed"
+  gem "jekyll-get-json"
+  gem "jekyll-imagemagick"
+  gem "jekyll-jupyter-notebook"
+  gem "jekyll-link-attributes"
+  gem "jekyll-minifier"
+  gem "jekyll-paginate-v2"
+  gem "jekyll-regex-replace"
+  gem "jekyll-scholar"
+  gem "jekyll-sitemap"
+  gem "jekyll-tabs"
+  gem "jekyll-toc"
+  gem "jekyll-twitter-plugin"
+  gem "jemoji"
+  gem "unicode_utils"
+  gem "webrick"
+end
 
-# Utility gems
-gem "jemoji", "~> 0.12"
-gem "webrick", "~> 1.7"
+group :other_plugins do
+  gem "css_parser"
+  gem "feedjira"
+  gem "httparty"
+end
 
-# Performance and development
-gem "html-proofer", "~> 5.0", group: :test
-gem "wdm", "~> 0.1.1", platforms: [:mingw, :x64_mingw, :mswin]
+# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
+# and associated library.
+platforms :mingw, :x64_mingw, :mswin, :jruby do
+  gem "tzinfo", ">= 1", "< 3"
+  gem "tzinfo-data"
+end
 
-# Additional utilities
-gem "json", "~> 2.6"
-gem "csv", "~> 3.2"
+# Performance-booster for watching directories on Windows
+gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
-# Lock specific versions to avoid conflicts
-gem "http_parser.rb", "~> 0.6.0", platforms: [:jruby]
+# Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds since newer versions of the gem
+# do not have a Java counterpart.
+gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
+
+# Lock jekyll-sass-converter to 2.x on Linux-musl
+if RUBY_PLATFORM =~ /linux-musl/
+  gem "jekyll-sass-converter", "~> 2.0"
+end
